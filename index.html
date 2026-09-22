@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Brandon Marquez | Web Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Brandon Marquez is a web developer specializing in responsive websites, HTML, CSS, JavaScript, Bootstrap, website fixes, and front-end development.">
+    <meta name="keywords" content="web developer, HTML, CSS, JavaScript, Bootstrap, responsive web design, website fixes, front-end developer">
+
+    <!-- Favicon -->
+    <link href="assets/images/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap + Main CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- =========================
+         CUSTOM CSS
+    ========================== -->
+    <style>
+        html{scroll-behavior:smooth}
+        body{font-family:"Open Sans",sans-serif}
+        h1,h2,h3,h4,h5,h6,.navbar-brand{font-family:"Space Grotesk",sans-serif}
+        .section-spacing{scroll-margin-top:100px}
+
+        /* =========================
+           NAVBAR
+        ========================== */
+        .navbar-wrapper{
+            background-color:rgba(240,248,248,.98);
+            backdrop-filter:blur(8px);
+            z-index:1050;
+        }
+
+        .navbar-brand{text-decoration:none}
+        .navbar-brand h3{font-size:1.65rem}
+        .navbar-nav{gap:8px}
+
+        .navbar-nav .nav-link{
+            font-weight:600;
+            white-space:nowrap;
+            margin-left:8px;
+        }
+
+        .navbar-nav .nav-link:hover{
+            color:var(--bs-primary);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+        .hero-section{
+            min-height:90vh;
+            display:flex;
+            align-items:center;
+            background-color:#f8f9fa;
+        }
+
+        .hero-title{
+            font-size:clamp(3rem,6vw,5.5rem);
+            line-height:1.05;
+        }
+
+        .hero-photo{
+            width:75%;
+            max-width:480px;
+            display:block;
+            margin:auto;
+            object-fit:cover;
+        }
+
+        .hero-skill-box{
+            display:inline-block;
+            border:3px solid #111;
+            padding:14px 22px;
+            font-weight:600;
+        }
+
+        .hero-list{
+            padding-left:1.2rem;
+            font-weight:600;
+            line-height:1.8;
+        }
+
+        /* =========================
+           GENERAL SECTION STYLES
+        ========================== */
+        .section-title{margin-bottom:3rem}
+
+        .section-title span{
+            text-transform:uppercase;
+            background-color:white;
+            padding:3px 10px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================== */
+        .services-section{
+            background-color:#f3f3f3;
+            padding:7rem 0;
+        }
+
+        .service-card{
+            height:100%;
+            min-height:230px;
+            padding:2rem;
+            background:white;
+            border:1px solid #222;
+            transition:.25s;
+        }
+
+        .service-card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 12px 28px rgba(0,0,0,.1);
+        }
+
+        .service-icon{
+            width:68px;
+            height:68px;
+            flex-shrink:0;
+            border:2px solid #111;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-right:1.5rem;
+        }
+
+        /* =========================
+           PORTFOLIO
+        ========================== */
+        .portfolio-section{
+            background-color:#e9ecef;
+            padding:7rem 0;
+        }
+
+        .portfolio-card{
+            border:none;
+            overflow:hidden;
+            transition:.25s;
+        }
+
+        .portfolio-card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 15px 35px rgba(0,0,0,.12);
+        }
+
+        .portfolio-image-frame{
+            background:white;
+            border:2px solid #d5d5d5;
+            border-radius:12px;
+            padding:14px;
+            box-shadow:0 12px 30px rgba(0,0,0,.12);
+        }
+
+        .portfolio-image{
+            width:100%;
+            height:auto;
+            display:block;
+            background:white;
+            border:1px solid #e2e2e2;
+            border-radius:6px;
+        }
+
+        .tech-badge{
+            display:inline-block;
+            background:#e9ecef;
+            color:#333;
+            padding:5px 10px;
+            border-radius:20px;
+            font-size:.85rem;
+            margin:0 4px 5px 0;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+        .about-section{
+            background:
+                linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+                url("assets/images/about-bg.png") no-repeat center/cover;
+            min-height:90vh;
+            display:flex;
+            align-items:flex-start;
+            color:white;
+            padding:6rem 0;
+        }
+
+        .about-text{
+            display:inline-block;
+            max-width:950px;
+            background:rgba(0,0,0,.68);
+            padding:24px 28px;
+            border-radius:12px;
+            font-size:18px;
+            line-height:1.8;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+        .skills-section{
+            background:#f8f9fa;
+            padding:7rem 0;
+        }
+
+        .skill-item{
+            background:white;
+            border:1px solid #ddd;
+            border-radius:8px;
+            padding:13px 16px;
+            font-weight:600;
+            height:100%;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+        .contact-section{
+            padding:7rem 0;
+        }
+
+        .contact-card{
+            background:#f8f9fa;
+            padding:2rem;
+            height:100%;
+            border-radius:8px;
+        }
+
+        .contact-card a{text-decoration:none}
+        .contact-card a:hover{text-decoration:underline}
+
+        /* =========================
+           FOOTER
+        ========================== */
+        .footer{background:#151515}
+        .footer a{text-decoration:none}
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================== */
+        .hidden-section{
+            opacity:0;
+            transform:translateY(35px);
+            transition:opacity .7s ease-out,transform .7s ease-out;
+        }
+
+        .animate-section{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        /* =========================
+           TABLET
+        ========================== */
+        @media(max-width:991px){
+            .navbar-wrapper .container{max-width:100%}
+            .navbar-brand{width:100%;margin-bottom:8px}
+            .navbar-brand h3{font-size:1.2rem}
+
+            .navbar-nav{
+                width:100%;
+                justify-content:flex-start;
+                gap:2px 18px;
+            }
+
+            .navbar-nav .nav-link{
+                margin-left:0;
+                padding-left:0;
+                padding-right:0;
+            }
+
+            .section-spacing{scroll-margin-top:145px}
+            .hero-section{text-align:center;padding-top:4rem}
+            .hero-photo{width:65%;margin-top:2rem}
+            .hero-list{display:inline-block;text-align:left}
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+        @media(max-width:576px){
+            .navbar-nav{gap:0 14px}
+            .navbar-nav .nav-link{font-size:.88rem}
+            .hero-title{font-size:3rem}
+            .hero-skill-box{padding:12px 14px;font-size:.9rem}
+            .hero-photo{width:90%}
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR START
+    ========================== -->
+    <div class="container-fluid sticky-top navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-light border-bottom border-2 border-white py-3">
+                <div class="w-100 d-flex flex-column flex-lg-row align-items-lg-center">
+
+                    <a href="#home" class="navbar-brand mb-2 mb-lg-0">
+                        <h3 class="mb-0">
+                            Brandon Marquez
+                            <span class="text-primary">| Web Developer</span>
+                        </h3>
+                    </a>
+
+                    <div class="navbar-nav flex-row flex-wrap ms-lg-auto">
+                        <a href="#home" class="nav-item nav-link">Home</a>
+                        <a href="#services" class="nav-item nav-link">Services</a>
+                        <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a href="#skills" class="nav-item nav-link">Skills</a>
+                        <a href="#contact" class="nav-item nav-link">Contact</a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- NAVBAR END -->
+
+
+    <!-- =========================
+         HERO START
+    ========================== -->
+    <div id="home" class="container-fluid hero-section section-spacing">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-6">
+                    <h1 class="hero-title mb-4">
+                        I Build <span class="text-primary">Modern Websites</span>
+                    </h1>
+
+                    <h5 class="hero-skill-box mb-4">
+                        Web Developer | HTML • CSS • JavaScript • Bootstrap
+                    </h5>
+
+                    <p class="lead mb-4">
+                        I create clean, responsive, and user-friendly websites
+                        for businesses, professionals, and individuals.
+                    </p>
+
+                    <div class="mb-4">
+                        <a href="#portfolio" class="btn btn-primary py-3 px-4 me-2 mb-2">
+                            View My Work
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline-dark py-3 px-4 mb-2">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <ul class="hero-list">
+                        <li>Responsive Website Design</li>
+                        <li>HTML, CSS, JavaScript & Bootstrap</li>
+                        <li>Website Updates, Bug Fixes & Layout Improvements</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6">
+                    <img class="img-fluid hero-photo"
+                        src="assets/img/IMG_6023.JPG"
+                        alt="Brandon Marquez">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- HERO END -->
+
+
+    <!-- =========================
+         SERVICES START
+    ========================== -->
+    <div id="services" class="container-fluid services-section section-spacing">
+        <div class="container">
+
+            <h1 class="section-title">
+                My <span class="text-primary">Services</span>
+            </h1>
+
+            <div class="row g-4 align-items-stretch">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card d-flex align-items-center">
+                        <div class="service-icon">
+                            <i class="fa fa-laptop text-primary fa-2x"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="mb-3">Web Development</h4>
+                            <p class="mb-0">
+                                Clean, responsive websites built with HTML, CSS,
+                                JavaScript, and Bootstrap with a focus on usability
+                                and professional design.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card d-flex align-items-center">
+                        <div class="service-icon">
+                            <i class="fa fa-wrench text-primary fa-2x"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="mb-3">Website Fixes</h4>
+                            <p class="mb-0">
+                                Fixing HTML, CSS, spacing, navigation, formatting,
+                                broken layouts, and other front-end website problems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card d-flex align-items-center">
+                        <div class="service-icon">
+                            <i class="fa fa-mobile-alt text-primary fa-2x"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="mb-3">Responsive Design</h4>
+                            <p class="mb-0">
+                                Improving website layouts so they look professional
+                                and work properly across desktop, tablet, and mobile devices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SERVICES END -->
+
+
+    <!-- =========================
+         PORTFOLIO START
+    ========================== -->
+    <div id="portfolio" class="container-fluid portfolio-section section-spacing">
+        <div class="container">
+
+            <h1 class="section-title">
+                My <span class="text-primary">Portfolio</span>
+            </h1>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+
+                    <div class="card portfolio-card shadow-sm">
+
+                        <div class="portfolio-image-frame">
+                            <img src="assets/images/portfolio1.png"
+                                class="portfolio-image"
+                                alt="Brandon Marquez personal web development portfolio">
+                        </div>
+
+                        <div class="card-body p-4 p-lg-5">
+                            <h3 class="card-title mb-3">
+                                Personal Developer Portfolio
+                            </h3>
+
+                            <p class="card-text mb-4">
+                                Designed and developed a responsive personal portfolio
+                                website using HTML, CSS, JavaScript, and Bootstrap.
+                                The website showcases my web development services,
+                                technical skills, education, projects, and contact information.
+                            </p>
+
+                            <div class="mb-4">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <span class="tech-badge">Responsive Design</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- PORTFOLIO END -->
+
+
+    <!-- =========================
+         ABOUT START
+    ========================== -->
+    <div id="about" class="container-fluid about-section section-spacing">
+        <div class="container">
+
+            <h1 class="section-title">
+                About <span class="text-primary">Me</span>
+            </h1>
+
+            <div class="about-text">
+                <p>
+                    I'm Brandon Marquez, a Texas Tech University graduate
+                    with a Bachelor of Business Administration in Information Technology.
+                </p>
+
+                <p>
+                    I enjoy combining technology, design, and business knowledge
+                    to create practical and user-friendly digital solutions.
+                </p>
+
+                <p class="mb-0">
+                    My goal is to help businesses and individuals build professional
+                    websites that are clean, responsive, easy to use, and effective
+                    across desktop and mobile devices.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!-- ABOUT END -->
+
+
+    <!-- =========================
+         SKILLS START
+    ========================== -->
+    <div id="skills" class="container-fluid skills-section section-spacing">
+        <div class="container">
+
+            <h1 class="section-title">
+                My <span class="text-primary">Skills</span>
+            </h1>
+
+            <p class="lead mb-5">
+                My background combines web development, programming,
+                information technology, and business knowledge.
+            </p>
+
+            <div class="row g-3">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 text-primary me-2"></i>HTML5
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt text-primary me-2"></i>CSS3
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fab fa-js text-primary me-2"></i>JavaScript
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-code text-primary me-2"></i>Bootstrap
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-mobile-alt text-primary me-2"></i>
+                        Responsive Web Design
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-tools text-primary me-2"></i>
+                        Front-End Troubleshooting
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fab fa-python text-primary me-2"></i>Python
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-code text-primary me-2"></i>C++
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-database text-primary me-2"></i>SQL & MySQL
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-laptop-code text-primary me-2"></i>
+                        Visual Studio Code
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt text-primary me-2"></i>Git & GitHub
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-item">
+                        <i class="fas fa-file-alt text-primary me-2"></i>Microsoft Office
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SKILLS END -->
+
+
+    <!-- =========================
+         CONTACT START
+    ========================== -->
+    <div id="contact" class="container-fluid contact-section section-spacing">
+        <div class="container">
+
+            <h1 class="section-title">
+                Get In <span class="text-primary">Touch</span>
+            </h1>
+
+            <div class="row g-5">
+
+                <!-- Contact Information -->
+                <div class="col-lg-6">
+                    <div class="contact-card">
+
+                        <h3 class="mb-4">Contact Information</h3>
+
+                        <p class="mb-4">
+                            I'm available for freelance website projects,
+                            website updates, responsive design improvements,
+                            and front-end development work.
+                        </p>
+
+                        <p>
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            Texas, USA
+                        </p>
+
+                        <p>
+                            <i class="bi bi-envelope text-primary me-2"></i>
+                            <a href="mailto:brandonmarquez.tech@gmail.com">
+                                brandonmarquez.tech@gmail.com
+                            </a>
+                        </p>
+
+                        <p>
+                            <i class="bi bi-linkedin text-primary me-2"></i>
+                            <a href="https://www.linkedin.com/in/brandon-marquez-6905392a8/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                LinkedIn
+                            </a>
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="contact-card">
+
+                        <h3 class="mb-4">Send Me a Message</h3>
+
+                        <form id="contact-form">
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="contact-name" class="form-label">Name</label>
+                                    <input id="contact-name"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Your Name"
+                                        required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="contact-email" class="form-label">Email</label>
+                                    <input id="contact-email"
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="Your Email"
+                                        required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contact-subject" class="form-label">Subject</label>
+                                    <input id="contact-subject"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Website project"
+                                        required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contact-message" class="form-label">Message</label>
+                                    <textarea id="contact-message"
+                                        class="form-control"
+                                        rows="5"
+                                        placeholder="Tell me about your project..."
+                                        required></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">
+                                        <i class="bi bi-envelope me-2"></i>
+                                        Send Message
+                                    </button>
+                                </div>
+
+                                <div class="col-12">
+                                    <small class="text-muted">
+                                        Clicking Send Message will open your email application
+                                        with the message filled in.
+                                    </small>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- CONTACT END -->
+
+
+    <!-- =========================
+         FOOTER START
+    ========================== -->
+    <div class="container-fluid text-white-50 footer pt-5">
+        <div class="container py-5">
+
+            <div class="row g-5">
+
+                <div class="col-md-6 col-lg-4">
+                    <h3 class="text-white mb-4">Brandon Marquez</h3>
+
+                    <p class="mb-0">
+                        Web developer focused on creating clean, responsive websites
+                        and helping businesses improve their online presence.
+                    </p>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+
+                    <a class="btn btn-link" href="#home">Home</a>
+                    <a class="btn btn-link" href="#services">Services</a>
+                    <a class="btn btn-link" href="#portfolio">Portfolio</a>
+                    <a class="btn btn-link" href="#about">About</a>
+                    <a class="btn btn-link" href="#skills">Skills</a>
+                    <a class="btn btn-link" href="#contact">Contact</a>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="text-white mb-4">Contact Information</h5>
+
+                    <p>
+                        <i class="bi bi-geo-alt text-primary me-2"></i>
+                        Texas, USA
+                    </p>
+
+                    <p>
+                        <i class="bi bi-envelope text-primary me-2"></i>
+                        <a href="mailto:brandonmarquez.tech@gmail.com"
+                            class="text-white-50">
+                            brandonmarquez.tech@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <i class="bi bi-linkedin text-primary me-2"></i>
+                        <a href="https://www.linkedin.com/in/brandon-marquez-6905392a8/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-white-50">
+                            LinkedIn
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+            <hr class="my-5">
+
+            <div class="text-center">
+                <p class="mb-0">
+                    &copy; <span id="current-year"></span>
+                    Brandon Marquez. All Rights Reserved.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!-- FOOTER END -->
+
+
+    <!-- =========================
+         BACK TO TOP
+    ========================== -->
+    <a href="#home"
+        class="btn btn-lg btn-primary btn-lg-square back-to-top"
+        aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+
+    <!-- =========================
+         JAVASCRIPT LIBRARIES
+    ========================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <!-- =========================
+         CUSTOM JAVASCRIPT
+    ========================== -->
+    <script>
+
+        /* Section Fade Animation */
+        document.addEventListener("DOMContentLoaded",function(){
+            const sections=document.querySelectorAll(
+                "#home,#services,#portfolio,#about,#skills,#contact"
+            );
+
+            const observer=new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if(entry.isIntersecting){
+                        entry.target.classList.add("animate-section");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },{threshold:.08});
+
+            sections.forEach(function(section){
+                section.classList.add("hidden-section");
+                observer.observe(section);
+            });
+        });
+
+
+        /* Contact Form */
+        document.getElementById("contact-form")
+        .addEventListener("submit",function(event){
+            event.preventDefault();
+
+            const name=document.getElementById("contact-name").value;
+            const email=document.getElementById("contact-email").value;
+            const subject=document.getElementById("contact-subject").value;
+            const message=document.getElementById("contact-message").value;
+
+            const body=
+                "Name: "+name+
+                "\nEmail: "+email+
+                "\n\n"+message;
+
+            window.location.href=
+                "mailto:brandonmarquez.tech@gmail.com"+
+                "?subject="+encodeURIComponent(subject)+
+                "&body="+encodeURIComponent(body);
+        });
+
+
+        /* Automatic Footer Year */
+        document.getElementById("current-year").textContent=
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
